@@ -14,13 +14,13 @@ func (tsk *Todo) createTodo(todo string, priority string) {
 	i++;
 }
 
- func (tsk Todo) showTask(){
+func (tsk Todo) showTask(){
 	// fmt.Println("Id:", tsk.id)
 	// fmt.Println("Todo: ", tsk.todo)
 	// fmt.Println("Priority: ", tsk.priority);
 	fmt.Printf("Task\n Id: %v\n Todo: %v\n Priority: %v\n", tsk.id, tsk.todo, tsk.priority)
-
 }
+
 func main(){
 	task1 := &Todo{}
 	task1.createTodo( "Call Abhishek", "Low");
