@@ -19,7 +19,7 @@ func main(){
 	fmt.Println("This is a rest-api......");
 	http.HandleFunc("/", homePage);
 	http.HandleFunc("/insert", insertRow);
-	// http.HandleFunc("/getdata", readFromTable)
+	http.HandleFunc("/getdata", readFromTable)
 
 	psqlconn := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
 
@@ -50,15 +50,15 @@ func main(){
 func homePage(w http.ResponseWriter, r *http.Request){
 	fmt.Fprint(w, "Welcome to homepage!!");
 }
-// func readFromTable(w http.ResponseWriter, r *http.Request){
-// 	selectQuery := `select * from employeedetail`;
-// 	data, err := db.Query(selectQuery);
-// 	if(err != nil){
-// 		panic(err)
-// 	}
-// 	fmt.Fprint(w, "Employee table data fetched");
-// 	fmt.Println(data);
-// }
+func readFromTable(w http.ResponseWriter, r *http.Request){
+	selectQuery := `select * from employeedetail`;
+	data, err := db.Query(selectQuery);
+	if(err != nil){
+		panic(err)
+	}
+	fmt.Fprint(w, "Employee table data fetched");
+	fmt.Println(data);
+}
 
 func insertRow(w http.ResponseWriter, r *http.Request){
 	// fmt.Println("in handler")
