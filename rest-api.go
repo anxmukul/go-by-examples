@@ -20,6 +20,8 @@ func main(){
 	http.HandleFunc("/", homePage);
 	http.HandleFunc("/insert", insertRow);
 	http.HandleFunc("/getdata", readFromTable)
+	http.HandleFunc("/updaterow", updateRow)
+	http.HandleFunc("/deleterow", deleteRow)
 
 	psqlconn := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
 
@@ -74,4 +76,22 @@ func insertRow(w http.ResponseWriter, r *http.Request){
 		panic(err);
 	}
 	fmt.Fprint(w, "Row Inserted");
+}
+
+func updateRow(w http.ResponseWriter, r *http.Request){
+	updateQuery := `update employeedetail set emp_email = 'priyans@rediffmail.com' where emp_id = 3;`
+	_, err := db.Query(updateQuery);
+	if(err!= nil){
+		panic(err)
+	}
+	fmt.Fprint(w, "Row updated");
+}
+
+func deleteRow(w http.ResponseWriter, r *http.Request){
+	deleteQuery := `delete from employeedetail where emp_name = 'Ravi';`
+	_, err := db.Query(deleteQuery);
+	if(err != nil){
+		panic(err)
+	}
+	fmt.Fprint(w, "Row Deleted");
 }
