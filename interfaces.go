@@ -37,11 +37,11 @@ func totalExpances(s []salaryCalcultor) int {
 	return expances
 }
 func main(){
-	pemp1 := Permanent{1, 250000, 23000}
-	pemp2 := Permanent{2, 450000, 13000}
-	cemp1 := Contract{3, 65000}
-	cemp2 := Contract{4, 89000}
-	pemp3 := Permanent{5, 650000, 6500}
+	// pemp1 := Permanent{1, 250000, 23000}
+	// pemp2 := Permanent{2, 450000, 13000}
+	// cemp1 := Contract{3, 65000}
+	// cemp2 := Contract{4, 89000}
+	// pemp3 := Permanent{5, 650000, 6500}
 	// Now if we want to calculate the total expances we have to read all the emp salary individually and add them
 	
 	// totalExpances := pemp1.calculateSalary() +pemp2.calculateSalary() + cemp1.calculateSalary() + cemp2.calculateSalary();
@@ -52,9 +52,12 @@ func main(){
 	// Here comes the interface :- Now we will crete an interface (an interface is a set of method signatures.)
 	// create a single calculateexpances method and pass slice of employee object to that method and interface will
 	// Automatically calculate the total expances
-
-
-	employees := [] salaryCalcultor {pemp1, pemp2, cemp1, cemp2, pemp3}
-	fmt.Println("Total Company Expances is: ", totalExpances(employees))
+	
+	var emp salaryCalcultor
+	emp1 := Permanent{1, 45000, 2300}
+	emp = emp1;
+	fmt.Println(emp.calculateSalary())
+	// employees := [] salaryCalcultor {pemp1, pemp2, cemp1, cemp2, pemp3}
+	// fmt.Println("Total Company Expances is: ", totalExpances(employees))
 
 }

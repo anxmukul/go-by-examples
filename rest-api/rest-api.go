@@ -11,7 +11,7 @@ var db *sql.DB
 
 const (
 	host     = "localhost"
-	port     = 5432
+	port     = 5432	
 	user     = "postgres"
 	password = "blah"
 	dbname   = "employee"
@@ -48,7 +48,6 @@ func main() {
 	if err := http.ListenAndServe(":3001", nil); err != nil {
 		panic(err)
 	}
-	// fmt.Println("Line 42");
 }
 
 func homePage(w http.ResponseWriter, r *http.Request) {
@@ -62,9 +61,6 @@ type emp struct {
 	Emp_dep   string
 }
 
-// emp_name := "";
-// emp_email := "";
-// emp_dep := "";
 func readFromTable(w http.ResponseWriter, r *http.Request) {
 	var returnedRow emp
 	selectQuery := `select * from employeedetail where emp_id = 3`
